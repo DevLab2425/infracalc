@@ -51,9 +51,15 @@ header > h1 {
 }
 
 
+section.calculator {
+  display: none;
+}
+
+section.calculator.active {
+  display: block;
+}
 
 /* Mode Calculation Form */
-
 
 #mode-calc-form .radio-wrapper {
   padding: .5em 1em;
@@ -61,10 +67,7 @@ header > h1 {
   justify-content: baseline;
   background-color: var(--odd-bg-color);
 }
-/* nth-child seems to be 0-based, 
-** the first "odd" childs is the second in a collection
-*/
-#mode-calc-form .radio-wrapper:nth-child(odd) {
+#mode-calc-form .radio-wrapper:has(input[type="radio"]:checked){
   background-color: var(--even-bg-color);
 }
 
@@ -116,9 +119,11 @@ header > h1 {
 }
 /* End Production Rate Form */
 
-section#results,
-section#building_calculation {
+section#results{
   display:none;
+}
+section#results.ready{
+  display:block;
 }
 
 input:invalid {
