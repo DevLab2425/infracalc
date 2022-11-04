@@ -9,110 +9,86 @@
 </head>
 
 <body>
-    <header>
-      <h1>Infraspace Calculator</h1>
-    </header>
-    
+  <header>
+    <h1>Infraspace Calculator</h1>
+  </header>
+
+  <div class="wrapper">
     <section>
-      <div>
-        <form id="mode-calc-form">
-          <legend>Mode of Calculation</legend>
-          <div class="radio-wrapper">
-            <label for="rateRadio">
-              <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
-            </label>
-            <div>
-              <input type="radio" name="mode" id="rateRadio" value="rate" checked />
-            </div>
+      <h2>Mode of Calculation</h2>
+      <form id="mode-calc-form">
+        <div class="radio-wrapper">
+          <label for="rateRadio">
+            <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
+          </label>
+          <div>
+            <input type="radio" name="mode" id="rateRadio" value="rate" checked />
           </div>
-          <div class="radio-wrapper">
-            <label for="buildingRadio">
-              <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
-            </label>
-            <div>
-              <input type="radio" name="mode" id="buildingRadio" value="building" />
-            </div>
+        </div>
+        <div class="radio-wrapper">
+          <label for="buildingRadio">
+            <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
+          </label>
+          <div>
+            <input type="radio" name="mode" id="buildingRadio" value="building" />
           </div>
-        </form>
+        </div>
+      </form>
+    </section>
+    
+    <section id="rate_calculation">
+      <h2>Production Rate</h2>
+      <form id="prod-rate-form">
+      </form>
+      <div class="field-wrapper">
+        <div>
+          <label for="resource">Resource</label>
+          <select id="resource"></select>
+        </div>
+        <div>
+          <label for="rate_amount">Amount</label>
+          <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
+        </div>
+        <div>
+          <label for="time_frame">Time Frame</label>
+          <select id="time_frame">
+            <option>per second</option>
+            <option>per minute</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit" id="calc_rate">Calculate</button>
+        </div>
       </div>
     </section>
 
-  <div id="building_calculation" style="display:none;">
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>Building</th>
-          <th>Amount</th>
-          <th>Requirements</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
+    <section id="building_calculation">
+      <h2>Building Support</h2>
+      <form id="build-calc-form">
+        <div class="field-wrapper">
+          <div>
+            <label for="building">Building</label>
             <select id="building"></select>
-          </td>
-          <td>
-            <input type="text" id="building_amount" pattern="\d+" value="1" style="width:80px" />
-          </td>
-          <td>
+          </div>
+          <div>
+            <label for="building_amount">Amount</label>
+            <input type="text" id="building_amount" pattern="\d+" value="1"/>
+          </div>
+          <div>
             <button id="calc_building">Calculate</button>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <div id="building_message">
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <table id="building_results"></table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section id="results">
+      <h2>Rate Results</h2>
+      <p id="rate_message"></p>
+      <table id="rate_results"></table>
+    </section>
   </div>
 
-  <div id="rate_calculation" style="display:inline;">
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>Resource</th>
-          <th>Amount</th>
-          <th>Time frame</th>
-          <th>Requirements</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <select id="resource"></select>
-          </td>
-          <td>
-            <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" style="width:80px" />
-          </td>
-          <td>
-            <select id="time_frame">
-              <option>per second</option>
-              <option>per minute</option>
-            </select>
-          </td>
-          <td>
-            <button id="calc_rate">Calculate</button>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <div id="rate_message">
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <table id="rate_results"></table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
   <script lang="javascript">
 
     window.addEventListener('load', (event) => {

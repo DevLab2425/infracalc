@@ -3,7 +3,7 @@
   font-size: 16px;
   font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
   --header-bg-color: hsl(224, 67%, 15%);
-  --odd-bg-color: hsl(205, 19%, 54%);
+  --odd-bg-color: #748ea0;
   --even-bg-color: hsl(204, 53%, 38%);
 }
 
@@ -21,36 +21,50 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 2.5rem; }
 
-/* Header */
-header {
-  background-color: var(--header-bg-color);
-  border-bottom: 1px solid;
-  padding: 1em;
-  display: flex;
-  justify-content: center;
+form > div{
+  padding: .5em 0;
 }
 
-header > h1 {
-  font-size: 2.0rem;
+section h2 {
+  font-weight: bold;
+  background-color: var(--header-bg-color);
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
 section {
   margin: 1em 0;
 }
 
-/* Mode Calculation Form */
-#mode-calc-form legend {
-  font-weight: bold;
+/* Site Header */
+header {
   background-color: var(--header-bg-color);
+  border-bottom: 1px solid;
   padding: 1em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
 }
+
+header > h1 {
+  font-size: 2.0rem;
+}
+
+
+
+/* Mode Calculation Form */
+
 
 #mode-calc-form .radio-wrapper {
   padding: .5em 1em;
   display: flex;
+  justify-content: baseline;
   background-color: var(--odd-bg-color);
 }
-#mode-calc-form .radio-wrapper:nth-child(even) {
+/* nth-child seems to be 0-based, 
+** the first "odd" childs is the second in a collection
+*/
+#mode-calc-form .radio-wrapper:nth-child(odd) {
   background-color: var(--even-bg-color);
 }
 
@@ -66,6 +80,46 @@ section {
 }
 
 /* End Mode Calculation Form */
+
+/* Production Rate Form */
+
+.field-wrapper{
+  background: var(--odd-bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.3rem;
+  flex-wrap: wrap;
+  gap: .5em;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.field-wrapper label,
+.field-wrapper input,
+.field-wrapper select,
+.field-wrapper button{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  outline: 1px solid var(--odd-bg-color);
+}
+
+.field-wrapper > div{
+  flex-basis: 100%;
+  padding-bottom: .5em;
+}
+
+.field-wrapper > div:first-child{
+  flex-basis: 100%;
+  padding-top: .5em;
+}
+/* End Production Rate Form */
+
+section#results,
+section#building_calculation {
+  display:none;
+}
 
 input:invalid {
   border: 2px dashed red;
