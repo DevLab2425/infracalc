@@ -1,3 +1,72 @@
+/* Global */
+:root{
+  font-size: 16px;
+  font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --header-bg-color: hsl(224, 67%, 15%);
+  --odd-bg-color: hsl(205, 19%, 54%);
+  --even-bg-color: hsl(204, 53%, 38%);
+}
+
+body {
+  background: hsl(200, 18%, 13%);
+  color: hsl(180, 7%, 97%);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 { font-size: 2.5rem; }
+
+/* Header */
+header {
+  background-color: var(--header-bg-color);
+  border-bottom: 1px solid;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+header > h1 {
+  font-size: 2.0rem;
+}
+
+section {
+  margin: 1em 0;
+}
+
+/* Mode Calculation Form */
+#mode-calc-form legend {
+  font-weight: bold;
+  background-color: var(--header-bg-color);
+  padding: 1em;
+}
+
+#mode-calc-form .radio-wrapper {
+  padding: .5em 1em;
+  display: flex;
+  background-color: var(--odd-bg-color);
+}
+#mode-calc-form .radio-wrapper:nth-child(even) {
+  background-color: var(--even-bg-color);
+}
+
+#mode-calc-form input[type="radio"] {
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--header-bg-color);
+  border-radius: 50%;
+}
+#mode-calc-form input[type="radio"]:checked{
+  background-color: var(--header-bg-color);
+}
+
+/* End Mode Calculation Form */
+
 input:invalid {
   border: 2px dashed red;
 }
@@ -40,9 +109,4 @@ input:valid {
 
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #0f292e;
-}
-
-body {
-  background: #1b2327;
-  color: #F7F8F8;
 }

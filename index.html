@@ -9,35 +9,33 @@
 </head>
 
 <body>
-  <h1>Infraspace Calculator</h1>
-
-  <hr />
-
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>Mode of Calculation</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Production Rate - how to achieve a base production rate of X per minute/second</td>
-        <td>
-          <input type="radio" name="mode" value="rate" checked />
-        </td>
-        </td>
-      </tr>
-      <tr>
-        <td>Building Support - how many buildings are required to support X of given building</td>
-        <td>
-          <input type="radio" name="mode" value="building" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br />
+    <header>
+      <h1>Infraspace Calculator</h1>
+    </header>
+    
+    <section>
+      <div>
+        <form id="mode-calc-form">
+          <legend>Mode of Calculation</legend>
+          <div class="radio-wrapper">
+            <label for="rateRadio">
+              <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
+            </label>
+            <div>
+              <input type="radio" name="mode" id="rateRadio" value="rate" checked />
+            </div>
+          </div>
+          <div class="radio-wrapper">
+            <label for="buildingRadio">
+              <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
+            </label>
+            <div>
+              <input type="radio" name="mode" id="buildingRadio" value="building" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
 
   <div id="building_calculation" style="display:none;">
     <table class="styled-table">
