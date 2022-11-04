@@ -126,6 +126,33 @@ section#results.ready{
   display:block;
 }
 
+section#results.ready p{
+  padding: .5em 1em;
+  background-color: var(--even-bg-color);
+  margin: 0;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+table#calculator_results {
+  background-color: var(--even-bg-color);
+  width: 100%;
+  padding: .5em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table#calculator_results th{
+  font-weight:bold;
+}
+table#calculator_results td{
+  padding: .25em 0;
+}
+table#calculator_results td:last-child{
+  text-align:center;
+}
+
+
 input:invalid {
   border: 2px dashed red;
 }

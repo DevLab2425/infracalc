@@ -39,27 +39,27 @@
     <section id="rate_calculation" class="calculator active">
       <h2>Production Rate</h2>
       <form id="prod-rate-form">
+        <div class="field-wrapper">
+          <div>
+            <label for="resource_selector">Resource</label>
+            <select id="resource_selector"></select>
+          </div>
+          <div>
+            <label for="rate_amount">Amount</label>
+            <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
+          </div>
+          <div>
+            <label for="time_frame">Time Frame</label>
+            <select id="time_frame">
+              <option>per second</option>
+              <option>per minute</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit" id="calc_rate">Calculate</button>
+          </div>
+        </div>
       </form>
-      <div class="field-wrapper">
-        <div>
-          <label for="resource_selector">Resource</label>
-          <select id="resource_selector"></select>
-        </div>
-        <div>
-          <label for="rate_amount">Amount</label>
-          <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
-        </div>
-        <div>
-          <label for="time_frame">Time Frame</label>
-          <select id="time_frame">
-            <option>per second</option>
-            <option>per minute</option>
-          </select>
-        </div>
-        <div>
-          <button type="submit" id="calc_rate">Calculate</button>
-        </div>
-      </div>
     </section>
 
     <section id="building_calculation" class="calculator">
@@ -83,10 +83,10 @@
 
     <section id="results">
       <h2>Rate Results</h2>
-      <p id="rate_message"></p>
-      <p id="building_message"></p>
-      <table id="rate_results"></table>
-      <table id="building_results"></table>
+      <p id="results_message"></p>
+      <table id="calculator_results">
+        <tr><th>Building</th><th>Number required</th></tr>
+      </table>
     </section>
   </div>
 
