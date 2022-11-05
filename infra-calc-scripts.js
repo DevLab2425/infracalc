@@ -6,7 +6,7 @@ window.InfraCalc = window.InfraCalc || {
     console.debug('InfraCalc::Init');
     const { data, calculateResourceRate, calculateBuildingRequirements } = InfraCalc;
     
-    const resourceSelector = document.getElementById("resource_selector");
+    const resourceSelector = document.getElementById("resource-selector");
     const buildings = document.getElementById("building");
 
     Object.keys(data)
@@ -47,7 +47,8 @@ window.InfraCalc = window.InfraCalc || {
     // any more items, will require a refactor
     calcs[0].classList.remove('active');
     calcs[1].classList.remove('active');
-    document.getElementById(`${value}_calculation`).classList.add('active');
+    console.log({value});
+    document.getElementById(`${value}-calculation`).classList.add('active');
 
     InfraCalc.hideResults();
   },
@@ -70,19 +71,19 @@ window.InfraCalc = window.InfraCalc || {
     
     const { data, itemCosts, populateResults, validateAmount } = InfraCalc;
     
-    var itemKey = Object.keys(data)[document.getElementById("building").selectedIndex];
-    var item = data[itemKey];
-    var amount = document.getElementById("building_amount")
-    var table = document.getElementById("calculator_results");
-    var messageElement = document.getElementById("results_message");
+    const itemKey = Object.keys(data)[document.getElementById("building").selectedIndex];
+    const item = data[itemKey];
+    const amount = document.getElementById("building-amount")
+    const table = document.getElementById("calculator-results");
+    const messageElement = document.getElementById("results-message");
   
-    var plural = amount.value > 1 ? "s" : "";
-    var message = `Requirements to satisfy ${amount.value} ${item.building} building${plural}`
+    const plural = amount.value > 1 ? "s" : "";
+    const message = `Requirements to satisfy ${amount.value} ${item.building} building${plural}`
     if (!validateAmount(amount, messageElement, table, message)) {
       return;
     }
   
-    var results = {};
+    const results = {};
     
     itemCosts(itemKey, results, parseInt(amount.value));
     populateResults(itemKey, table, results);
@@ -94,18 +95,18 @@ window.InfraCalc = window.InfraCalc || {
     ev.preventDefault();
     
     const { data, displayResults, itemCosts, populateResults, timeFrame, validateAmount } = InfraCalc;
-    var time = timeFrame[document.getElementById("time_frame").selectedIndex];
-    var item = Object.keys(data)[document.getElementById("resource_selector").selectedIndex];
-    var amount = document.getElementById("rate_amount");
-    var table = document.getElementById("calculator_results");
-    var messageElement = document.getElementById("results_message");
+    const time = timeFrame[document.getElementById("time-frame").selectedIndex];
+    const item = Object.keys(data)[document.getElementById("resource-selector").selectedIndex];
+    const amount = document.getElementById("rate-amount");
+    const table = document.getElementById("calculator-results");
+    const messageElement = document.getElementById("results-message");
   
     if (!validateAmount(amount, messageElement, table, "Required buildings for " + item)) {
       return;
     }
   
-    var requiredRate = amount.value / time;
-    var results = {};
+    const requiredRate = amount.value / time;
+    const results = {};
   
     itemCosts(item, results, requiredRate / data[item].rate);
     populateResults(item, table, results);
@@ -132,8 +133,8 @@ window.InfraCalc = window.InfraCalc || {
   
   populateResults: (item, table, results) => {
     const { data, sumRequired, } = InfraCalc;
-    var list = Object.keys(data).reverse();
-    var html = "<tr><th>Building</th><th>Number required</th></tr>";
+    const list = Object.keys(data).reverse();
+    let html = "<tr><th>Building</th><th>Number required</th></tr>";
   
     html += `<tr><td>${data[item].building}</td><td>${sumRequired(item, results)}</td><tr>`;
   
@@ -151,10 +152,16 @@ window.InfraCalc = window.InfraCalc || {
   },
 
   sumRequired: (item, results) => {
-    var sum = 0;
+    let origSum = 0;
     for (const i of results[item]) {
-      sum += i;
+      origSum += i;
     }
+
+    const sum = results[item].reduce((count, amount) => {
+      return count + amount;
+    }, 0);
+
+    console.log('final', origSum === sum);
     return sum;
   },
 

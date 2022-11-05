@@ -146,7 +146,7 @@ section#results.ready p{
   border-bottom: 1px solid white;
 }
 
-table#calculator_results {
+table#calculator-results {
   background-color: var(--primary-color-dark);
   width: 100%;
   padding: .5em 1em;
@@ -154,12 +154,12 @@ table#calculator_results {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-table#calculator_results th{
+table#calculator-results th{
   font-weight:bold;
 }
-table#calculator_results td{
+table#calculator-results td{
   padding: .25em 0;
 }
-table#calculator_results td:last-child{
+table#calculator-results td:last-child{
   text-align:center;
 }

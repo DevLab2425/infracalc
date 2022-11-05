@@ -18,51 +18,51 @@
         <h2>Mode of Calculation</h2>
         <form id="mode-calc-form">
           <div class="radio-wrapper">
-            <label for="rateRadio">
+            <label for="rate-radio">
               <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
             </label>
             <div>
-              <input type="radio" name="mode" id="rateRadio" value="rate" checked/>
+              <input type="radio" name="mode" id="rate-radio" value="rate" checked/>
             </div>
           </div>
           <div class="radio-wrapper">
-            <label for="buildingRadio">
+            <label for="building-radio">
               <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
             </label>
             <div>
-              <input type="radio" name="mode" id="buildingRadio" value="building"/>
+              <input type="radio" name="mode" id="building-radio" value="building"/>
             </div>
           </div>
         </form>
       </section>
       
-      <section id="rate_calculation" class="calculator active">
+      <section id="rate-calculation" class="calculator active">
         <h2>Production Rate</h2>
         <form id="prod-rate-form">
           <div class="field-wrapper">
             <div>
-              <label for="resource_selector">Resource</label>
-              <select id="resource_selector"></select>
+              <label for="resource-selector">Resource</label>
+              <select id="resource-selector"></select>
             </div>
             <div>
-              <label for="rate_amount">Amount</label>
-              <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
+              <label for="rate-amount">Amount</label>
+              <input type="text" id="rate-amount" pattern="\d+\.?\d*" value="1" />
             </div>
             <div>
-              <label for="time_frame">Time Frame</label>
-              <select id="time_frame">
+              <label for="time-frame">Time Frame</label>
+              <select id="time-frame">
                 <option>per second</option>
                 <option>per minute</option>
               </select>
             </div>
             <div>
-              <button type="submit" id="calc_rate">Calculate</button>
+              <button type="submit" id="calc-rate">Calculate</button>
             </div>
           </div>
         </form>
       </section>
 
-      <section id="building_calculation" class="calculator">
+      <section id="building-calculation" class="calculator">
         <h2>Building Support</h2>
         <form id="build-calc-form">
           <div class="field-wrapper">
@@ -71,20 +71,20 @@
               <select id="building"></select>
             </div>
             <div>
-              <label for="building_amount">Amount</label>
-              <input type="text" id="building_amount" pattern="\d+" value="1"/>
+              <label for="building-amount">Amount</label>
+              <input type="text" id="building-amount" pattern="\d+" value="1"/>
             </div>
             <div>
-              <button type="submit" id="calc_building">Calculate</button>
+              <button type="submit" id="calc-building">Calculate</button>
             </div>
           </div>
         </form>
       </section>
 
       <section id="results">
-        <h2>Rate Results</h2>
-        <p id="results_message"></p>
-        <table id="calculator_results">
+        <h2>Results</h2>
+        <p id="results-message"></p>
+        <table id="calculator-results">
           <tr><th>Building</th><th>Number required</th></tr>
         </table>
       </section>
