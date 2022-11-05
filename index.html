@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infraspace Calculator</title>
-  <link rel="stylesheet" href="infra-calc-styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infraspace Calculator</title>
+    <link rel="stylesheet" href="infra-calc-styles.css">
+  </head>
 
-<body>
-  <header>
-    <h1>Infraspace Calculator</h1>
-  </header>
+  <body>
+    <header>
+      <h1>Infraspace Calculator</h1>
+    </header>
 
-  <div class="wrapper">
-    <section>
-      <h2>Mode of Calculation</h2>
-      <form id="mode-calc-form">
-        <div class="radio-wrapper">
-          <label for="rateRadio">
-            <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
-          </label>
-          <div>
-            <input type="radio" name="mode" id="rateRadio" value="rate" checked/>
+    <div class="wrapper">
+      <section>
+        <h2>Mode of Calculation</h2>
+        <form id="mode-calc-form">
+          <div class="radio-wrapper">
+            <label for="rateRadio">
+              <strong>Production Rate</strong>&nbsp;&mdash;&nbsp;To achieve a base production rate of <em>X resource / minute&NonBreakingSpace;(second)</em>.
+            </label>
+            <div>
+              <input type="radio" name="mode" id="rateRadio" value="rate" checked/>
+            </div>
           </div>
-        </div>
-        <div class="radio-wrapper">
-          <label for="buildingRadio">
-            <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
-          </label>
-          <div>
-            <input type="radio" name="mode" id="buildingRadio" value="building"/>
+          <div class="radio-wrapper">
+            <label for="buildingRadio">
+              <strong>Building Support</strong>&nbsp;&mdash;&nbsp;How many buildings are required to support <em>X of a given building</em>.
+            </label>
+            <div>
+              <input type="radio" name="mode" id="buildingRadio" value="building"/>
+            </div>
           </div>
-        </div>
-      </form>
-    </section>
-    
-    <section id="rate_calculation" class="calculator active">
-      <h2>Production Rate</h2>
-      <form id="prod-rate-form">
-        <div class="field-wrapper">
-          <div>
-            <label for="resource_selector">Resource</label>
-            <select id="resource_selector"></select>
+        </form>
+      </section>
+      
+      <section id="rate_calculation" class="calculator active">
+        <h2>Production Rate</h2>
+        <form id="prod-rate-form">
+          <div class="field-wrapper">
+            <div>
+              <label for="resource_selector">Resource</label>
+              <select id="resource_selector"></select>
+            </div>
+            <div>
+              <label for="rate_amount">Amount</label>
+              <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
+            </div>
+            <div>
+              <label for="time_frame">Time Frame</label>
+              <select id="time_frame">
+                <option>per second</option>
+                <option>per minute</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" id="calc_rate">Calculate</button>
+            </div>
           </div>
-          <div>
-            <label for="rate_amount">Amount</label>
-            <input type="text" id="rate_amount" pattern="\d+\.?\d*" value="1" />
-          </div>
-          <div>
-            <label for="time_frame">Time Frame</label>
-            <select id="time_frame">
-              <option>per second</option>
-              <option>per minute</option>
-            </select>
-          </div>
-          <div>
-            <button type="submit" id="calc_rate">Calculate</button>
-          </div>
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
 
-    <section id="building_calculation" class="calculator">
-      <h2>Building Support</h2>
-      <form id="build-calc-form">
-        <div class="field-wrapper">
-          <div>
-            <label for="building">Building</label>
-            <select id="building"></select>
+      <section id="building_calculation" class="calculator">
+        <h2>Building Support</h2>
+        <form id="build-calc-form">
+          <div class="field-wrapper">
+            <div>
+              <label for="building">Building</label>
+              <select id="building"></select>
+            </div>
+            <div>
+              <label for="building_amount">Amount</label>
+              <input type="text" id="building_amount" pattern="\d+" value="1"/>
+            </div>
+            <div>
+              <button type="submit" id="calc_building">Calculate</button>
+            </div>
           </div>
-          <div>
-            <label for="building_amount">Amount</label>
-            <input type="text" id="building_amount" pattern="\d+" value="1"/>
-          </div>
-          <div>
-            <button type="submit" id="calc_building">Calculate</button>
-          </div>
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
 
-    <section id="results">
-      <h2>Rate Results</h2>
-      <p id="results_message"></p>
-      <table id="calculator_results">
-        <tr><th>Building</th><th>Number required</th></tr>
-      </table>
-    </section>
-  </div>
+      <section id="results">
+        <h2>Rate Results</h2>
+        <p id="results_message"></p>
+        <table id="calculator_results">
+          <tr><th>Building</th><th>Number required</th></tr>
+        </table>
+      </section>
+    </div>
 
-  <script src="./infra-calc-scripts.js" lang="javascript"></script>
-</body>
+    <script src="./infra-calc-scripts.js" lang="javascript"></script>
+  </body>
 
 </html>

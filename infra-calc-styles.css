@@ -3,8 +3,8 @@
   font-size: 16px;
   font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
   --header-bg-color: hsl(224, 67%, 15%);
-  --odd-bg-color: #748ea0;
-  --even-bg-color: hsl(204, 53%, 38%);
+  --primary-color-light: #748ea0;
+  --primary-color-dark: hsl(204, 53%, 38%);
 }
 
 body {
@@ -65,10 +65,10 @@ section.calculator.active {
   padding: .5em 1em;
   display: flex;
   justify-content: baseline;
-  background-color: var(--odd-bg-color);
+  background-color: var(--primary-color-light);
 }
 #mode-calc-form .radio-wrapper:has(input[type="radio"]:checked){
-  background-color: var(--even-bg-color);
+  background-color: var(--primary-color-dark);
 }
 
 #mode-calc-form input[type="radio"] {
@@ -87,13 +87,13 @@ section.calculator.active {
 /* Production Rate Form */
 
 .field-wrapper{
-  background: var(--odd-bg-color);
+  background: var(--primary-color-dark);
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 1.3rem;
   flex-wrap: wrap;
-  gap: .5em;
+  gap: .35em;
   text-align: center;
   padding: 0 1em;
 }
@@ -105,7 +105,19 @@ section.calculator.active {
   display: block;
   width: 100%;
   font-size: 1em;
-  outline: 1px solid var(--odd-bg-color);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.field-wrapper label{
+  margin-bottom: .3em;
+}
+
+.field-wrapper button{
+  background-color: var(--primary-color-light);
+  color:hsl(180, 7%, 97%);
+  border: 1px solid var(--primary-color-dark);
+  padding: 1em;
 }
 
 .field-wrapper > div{
@@ -128,14 +140,14 @@ section#results.ready{
 
 section#results.ready p{
   padding: .5em 1em;
-  background-color: var(--even-bg-color);
+  background-color: var(--primary-color-dark);
   margin: 0;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
 }
 
 table#calculator_results {
-  background-color: var(--even-bg-color);
+  background-color: var(--primary-color-dark);
   width: 100%;
   padding: .5em 1em;
   white-space: nowrap;
@@ -150,49 +162,4 @@ table#calculator_results td{
 }
 table#calculator_results td:last-child{
   text-align:center;
-}
-
-
-input:invalid {
-  border: 2px dashed red;
-}
-
-input:valid {
-  border: 2px solid black;
-}
-
-.styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.styled-table thead tr {
-  background-color: #0d1b42;
-  color: #F7F8F8;
-  text-align: left;
-}
-
-.styled-table th,
-.styled-table td {
-  padding: 12px 15px;
-}
-
-.styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-  background-color: #2e6c96;
-}
-
-.styled-table tbody tr:nth-of-type(odd) {
-  background-color: #748ea0;
-}
-
-.styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #0f292e;
 }

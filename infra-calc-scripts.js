@@ -1,8 +1,10 @@
 window.InfraCalc = window.InfraCalc || {
+  timeFrame: [1, 60],
+
   init: () => {
     // call on window.onload
     console.debug('InfraCalc::Init');
-    const { data, calculate_resource_rate, calculate_building_requirements } = InfraCalc;
+    const { data, calculateResourceRate, calculateBuildingRequirements } = InfraCalc;
     
     const resourceSelector = document.getElementById("resource_selector");
     const buildings = document.getElementById("building");
@@ -22,19 +24,19 @@ window.InfraCalc = window.InfraCalc || {
 
     InfraCalc.setupToggleButtons();
     
-    document.getElementById("prod-rate-form").addEventListener("submit", (ev) => calculate_resource_rate(ev));
-    document.getElementById("build-calc-form").addEventListener("submit", (ev) => calculate_building_requirements(ev));
+    document.getElementById("prod-rate-form").addEventListener("submit", (ev) => calculateResourceRate(ev));
+    document.getElementById("build-calc-form").addEventListener("submit", (ev) => calculateBuildingRequirements(ev));
   },
 
   setupToggleButtons: () => {
     console.debug('InfraCalc::Setting up toggle buttons');
-    const { toggle_mode } = InfraCalc;
+    const { toggleMode } = InfraCalc;
 
     document.querySelectorAll('input[name="mode"]')
-      .forEach(element => element.addEventListener("change", ev => toggle_mode(ev)));
+      .forEach(element => element.addEventListener("change", ev => toggleMode(ev)));
   },
 
-  toggle_mode: (ev) => {
+  toggleMode: (ev) => {
     const { target : { value } } = ev;
     
     console.debug('InfraCalc::Toggle Mode ->', value);
@@ -50,7 +52,7 @@ window.InfraCalc = window.InfraCalc || {
     InfraCalc.hideResults();
   },
 
-  validate_amount: (amount, messageElement, table, message) => {
+  validateAmount: (amount, messageElement, table, message) => {
     if (!amount.checkValidity()) {
       messageElement.innerText = "aborting calculation due to bad input";
     } else {
@@ -61,12 +63,12 @@ window.InfraCalc = window.InfraCalc || {
     return amount.checkValidity();
   },
 
-  calculate_building_requirements: (ev) => {
+  calculateBuildingRequirements: (ev) => {
     console.debug('InfraCalc::Calculating building requirements');
     
     ev.preventDefault();
     
-    const { data, item_costs, populate_results, validate_amount } = InfraCalc;
+    const { data, itemCosts, populateResults, validateAmount } = InfraCalc;
     
     var itemKey = Object.keys(data)[document.getElementById("building").selectedIndex];
     var item = data[itemKey];
@@ -76,71 +78,71 @@ window.InfraCalc = window.InfraCalc || {
   
     var plural = amount.value > 1 ? "s" : "";
     var message = `Requirements to satisfy ${amount.value} ${item.building} building${plural}`
-    if (!validate_amount(amount, messageElement, table, message)) {
+    if (!validateAmount(amount, messageElement, table, message)) {
       return;
     }
   
     var results = {};
     
-    item_costs(itemKey, results, parseInt(amount.value));
-    populate_results(itemKey, table, results);
+    itemCosts(itemKey, results, parseInt(amount.value));
+    populateResults(itemKey, table, results);
   },
 
-  calculate_resource_rate: (ev) => {
+  calculateResourceRate: (ev) => {
     console.debug('InfraCalc::Calculating resource rate');
 
     ev.preventDefault();
     
-    const { data, displayResults, item_costs, populate_results, validate_amount } = InfraCalc;
-    var time = time_frame[document.getElementById("time_frame").selectedIndex];
+    const { data, displayResults, itemCosts, populateResults, timeFrame, validateAmount } = InfraCalc;
+    var time = timeFrame[document.getElementById("time_frame").selectedIndex];
     var item = Object.keys(data)[document.getElementById("resource_selector").selectedIndex];
     var amount = document.getElementById("rate_amount");
     var table = document.getElementById("calculator_results");
     var messageElement = document.getElementById("results_message");
   
-    if (!validate_amount(amount, messageElement, table, "Required buildings for " + item)) {
+    if (!validateAmount(amount, messageElement, table, "Required buildings for " + item)) {
       return;
     }
   
-    var required_rate = amount.value / time;
+    var requiredRate = amount.value / time;
     var results = {};
   
-    item_costs(item, results, required_rate / data[item].rate);
-    populate_results(item, table, results);
+    itemCosts(item, results, requiredRate / data[item].rate);
+    populateResults(item, table, results);
     displayResults();
   
     console.debug('InfraCalc::Resource rate results:',{results});
   },
 
-  item_costs: (item, costs, required_rate) => {
-    const { data, item_costs } = InfraCalc;
+  itemCosts: (item, costs, requiredRate) => {
+    const { data, itemCosts } = InfraCalc;
 
     if (!costs.hasOwnProperty(item)) {
       costs[item] = [];
     }
   
 
-    costs[item].push(required_rate > 1 ? Math.round(required_rate) : 1);
+    costs[item].push(requiredRate > 1 ? Math.round(requiredRate) : 1);
   
     for (const [i, v] of data[item].inputs.entries()) {
       // required rate * ingredient amount  / building process time / ingredient production rate
-      item_costs(v, costs, (required_rate * data[item].input_vals[i] / data[item].time) / data[v].rate);
+      itemCosts(v, costs, (requiredRate * data[item].input_vals[i] / data[item].time) / data[v].rate);
     }
   },
   
-  populate_results: (item, table, results) => {
-    const { data, sum_required, } = InfraCalc;
+  populateResults: (item, table, results) => {
+    const { data, sumRequired, } = InfraCalc;
     var list = Object.keys(data).reverse();
     var html = "<tr><th>Building</th><th>Number required</th></tr>";
   
-    html += `<tr><td>${data[item].building}</td><td>${sum_required(item, results)}</td><tr>`;
+    html += `<tr><td>${data[item].building}</td><td>${sumRequired(item, results)}</td><tr>`;
   
   
     for (const i of list) {
       if (i === item || !results.hasOwnProperty(i)) {
         continue;
       }
-      html += `<tr><td>${data[i].building}</td><td>${sum_required(i, results)}</td><tr>`
+      html += `<tr><td>${data[i].building}</td><td>${sumRequired(i, results)}</td><tr>`
     }
   
     table.innerHTML = html;
@@ -148,7 +150,7 @@ window.InfraCalc = window.InfraCalc || {
     InfraCalc.displayResults()
   },
 
-  sum_required: (item, results) => {
+  sumRequired: (item, results) => {
     var sum = 0;
     for (const i of results[item]) {
       sum += i;
@@ -421,27 +423,3 @@ window.InfraCalc = window.InfraCalc || {
 }
 
 window.onload = InfraCalc.init();
-
-//   var resources = document.getElementById("resource");
-//   var buildings = document.getElementById("building");
-
-//   for (const item of Object.keys(data)) {
-//     var optResource = document.createElement("option");
-//     optResource.text = item;
-//     resources.options.add(optResource);
-
-//     var optBuilding = document.createElement("option");
-//     optBuilding.text = data[item].building;
-//     buildings.options.add(optBuilding);
-
-//     data[item].rate = data[item].output / data[item].time;
-//   }
-
-//   document.getElementsByName("mode").forEach(e => e.addEventListener("change", toggle_mode));
-
-//   document.getElementById("calc_rate").addEventListener("click", calculate_resource_rate);
-//   document.getElementById("calc_building").addEventListener("click", calculate_building_requirements)
-// });
-
-// @TODO Take care of this little guy.
-let time_frame = [1, 60];
