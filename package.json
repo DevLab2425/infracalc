@@ -7,14 +7,16 @@
   "author": "Paul Barry <devlab2425@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "pages": "gh-pages --dist ./src",
-    "lint": "eslint ./**/*.js"
+    "build": "tsc",
+    "lint": "eslint ./**/*.js",
+    "pages": "gh-pages --dist ./src"
   },
   "devDependencies": {
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "gh-pages": "^4.0.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
   }
 }
