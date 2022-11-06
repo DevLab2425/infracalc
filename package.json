@@ -1,0 +1,9 @@
+{
+  "name": "infracalc",
+  "version": "0.1.0",
+  "description": "A production calculator for the civilization building game InfraSpace.",
+  "main": "index.html",
+  "repository": "git@github.com-devlab:DevLab2425/infracalc.git",
+  "author": "Paul Barry <devlab2425@gmail.com>",
+  "license": "MIT"
+}
