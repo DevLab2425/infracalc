@@ -59,6 +59,11 @@ section.calculator.active {
   display: block;
 }
 
+.wrapper{
+  max-width: 50em;
+  margin: 0 auto;
+}
+
 /* Mode Calculation Form */
 
 #mode-calc-form .radio-wrapper {
@@ -89,13 +94,11 @@ section.calculator.active {
 .field-wrapper{
   background: var(--primary-color-dark);
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   font-size: 1.3rem;
-  flex-wrap: wrap;
   gap: .35em;
   text-align: center;
-  padding: 0 1em;
+  padding: 0.5em 1em;
 }
 
 .field-wrapper label,
@@ -119,16 +122,6 @@ section.calculator.active {
   border: 1px solid var(--primary-color-dark);
   padding: 1em;
 }
-
-.field-wrapper > div{
-  flex-basis: 100%;
-  padding-bottom: .5em;
-}
-
-.field-wrapper > div:first-child{
-  flex-basis: 100%;
-  padding-top: .5em;
-}
 /* End Production Rate Form */
 
 section#results{
@@ -150,9 +143,7 @@ table#calculator-results {
   background-color: var(--primary-color-dark);
   width: 100%;
   padding: .5em 1em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 1.1em;
 }
 table#calculator-results th{
   font-weight:bold;
@@ -162,4 +153,39 @@ table#calculator-results td{
 }
 table#calculator-results td:last-child{
   text-align:center;
+}
+
+/* wide view overrides */
+@media (min-width: 660px) {
+  #mode-calc-form{
+    display: flex;
+  }
+  #mode-calc-form input[type="radio"] {
+    width: 2em;
+    height: 2em;
+  }
+  .radio-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .radio-wrapper label{
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1em;
+  }
+
+  .field-wrapper{
+    flex-direction: row;
+    gap: 1em;
+    align-items: end;
+    flex-wrap: wrap;
+  }
+
+  .field-wrapper > div{
+    flex: 1;
+  }
+  .field-wrapper > div:last-child{
+    flex-basis: 100%;
+  }
 }
