@@ -6,7 +6,7 @@
 
 ## Overview
 <p align="center">
-  <img src="./assets/images/mobile-view.png" width="50%" />
+  <img src="./src/assets/images/mobile-view.png" width="50%" />
 </p>
 
 ## Usage
@@ -23,7 +23,7 @@ Selecting a mode will display the dedicated form for the specific calculation.
 
 ### Production Rate
 
-<img src="./assets/images/production-rate-form.png" width="50%">
+<img src="./src/assets/images/production-rate-form.png" width="50%">
 
 1. Select the **Resource** to produce within the **Time Frame** 
 1. Enter the **Amount** of Resources to produce
@@ -33,7 +33,7 @@ Selecting a mode will display the dedicated form for the specific calculation.
 
 ### Building Support
 
-<img src="./assets/images/building-support-form.png" width="50%">
+<img src="./src/assets/images/building-support-form.png" width="50%">
 
 1. Select the **Building** type to support
 1. Enter the **Amount** of buildings
@@ -44,4 +44,4 @@ Selecting a mode will display the dedicated form for the specific calculation.
 
 The math which is required to determine the number of buildings to build should not be expected to be even. It is very common for the results to reveal that a partial building is required to meet the criteria. Of course, InfraSpace does not provide partial options. In all of these cases, the building will be round to the next _highest_ building. For example, a resource requiring 1.1 buildings and a resource requiring 1.9 buildings would _both_ be rounded to 2 buildings. 
 
-<img src="./assets/images/results-table.png" width="50%">
+<img src="./src/assets/images/results-table.png" width="50%">
