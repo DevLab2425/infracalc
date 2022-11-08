@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A resource calculator for the civilization building game InfraSpace">
+    <meta name="theme-color" content="#2e6b94">
     <title>Infraspace Calculator</title>
     <link rel="stylesheet" href="./assets/styles/infra-calc-styles.css">
   </head>
@@ -91,6 +93,37 @@
     </div>
 
     <script src="./assets/scripts/infra-calc-scripts.js" lang="javascript"></script>
+    <script>
+      (function ($win) {
+        if ('serviceWorker' in $win.navigator) {
+          navigator.serviceWorker
+            .register('./sw.js', {
+              scope: "./",
+            })
+            .then((registration) => {
+              let serviceWorker;
+              
+              if (registration.installing) {
+                serviceWorker = registration.installing;
+              } else if (registration.waiting) {
+                serviceWorker = registration.waiting;
+              } else if (registration.active) {
+                serviceWorker = registration.active;
+              } 
+
+              if (serviceWorker) {
+                // logState(serviceWorker.state);
+                console.log('sw', serviceWorker);
+                  // logState(e.target.state);
+              }
+
+            })
+            .catch((er) => {
+              console.log(er);
+            })
+        }
+      })(window);
+    </script>
   </body>
 
 </html>
