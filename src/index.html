@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infraspace Calculator</title>
     <link rel="stylesheet" href="./assets/styles/infra-calc-styles.css">
+    <script>var exports = {};</script>
   </head>
 
   <body>
@@ -46,7 +47,7 @@
             </div>
             <div>
               <label for="rate-amount">Amount</label>
-              <input type="text" id="rate-amount" pattern="\d+\.?\d*" value="1" />
+              <input type="number" id="rate-amount" pattern="\d+\.?\d*" value="1" />
             </div>
             <div>
               <label for="time-frame">Time Frame</label>
@@ -72,7 +73,7 @@
             </div>
             <div>
               <label for="building-amount">Amount</label>
-              <input type="text" id="building-amount" pattern="\d+" value="1"/>
+              <input type="number" id="building-amount" pattern="\d+" value="1"/>
             </div>
             <div>
               <button type="submit" id="calc-building">Calculate</button>
