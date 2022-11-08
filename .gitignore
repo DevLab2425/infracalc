@@ -1,5 +1,6 @@
 /node_modules
-/output
 .env
 *.log
-*.js*
+
+# generated JS files; store .ts files
+/dist

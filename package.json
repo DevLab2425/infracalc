@@ -7,9 +7,17 @@
   "author": "Paul Barry <devlab2425@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "predeploy": "yarn clean",
+    "deploy": "yarn build && yarn copyAssets",
     "build": "tsc",
+    "precopyAssets": "if [ ! -d ./dist ]; then mkdir dist; fi",
+    "copyAssets": "yarn copy:images && yarn copy:index && yarn copy:styles",
+    "copy:images": "cp -R ./src/assets/images ./dist/assets/images",
+    "copy:index": "cp ./src/index.html ./dist/",
+    "copy:styles": "cp -R ./src/assets/styles ./dist/assets/styles",
+    "clean": "rm -rf dist",
     "lint": "eslint ./**/*.js",
-    "pages": "gh-pages --dist ./src"
+    "pages": "gh-pages --dist ./dist"
   },
   "devDependencies": {
     "eslint": "^8.27.0",

@@ -40,8 +40,19 @@ Selecting a mode will display the dedicated form for the specific calculation.
 1. Click the **Calculate** button.
 1. Scroll to see the results
 
-## Results
+### Results
 
 The math which is required to determine the number of buildings to build should not be expected to be even. It is very common for the results to reveal that a partial building is required to meet the criteria. Of course, InfraSpace does not provide partial options. In all of these cases, the building will be round to the next _highest_ building. For example, a resource requiring 1.1 buildings and a resource requiring 1.9 buildings would _both_ be rounded to 2 buildings. 
 
 <img src="./src/assets/images/results-table.png" width="50%">
+
+## Deployments
+
+Deployments are handled through a series of npm scripts to prep and generate the application assets. The following outlines the individual steps.
+
+|Task|Description|
+|----|-----------|
+|`deploy`| The primary task that starts the process.|
+|`predeploy`| Called as part of the npm pre-* lifecycle. This task will remove the `./dist` directory to start with a fresh slate.|
+|`build`| This task will run the TypeScript compiler to transpile the `.ts` to `.js` files. |
+|`copyAssets`| This task will relocate the static files
