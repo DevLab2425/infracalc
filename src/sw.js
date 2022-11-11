@@ -3,6 +3,7 @@ const CACHED_FILES = [
   './assets/styles/infra-calc-styles.css',
   './assets/scripts/infra-calc-scripts.js',
   './index.html',
+  '/',
 ];
 
 const installListener = (event) =>
@@ -24,7 +25,7 @@ const fetchListener = (event) => {
 
   event.respondWith(
     caches.match(event.request).then((response) => {
-      // Cache hit
+      // Cache hit 🐰
       if (response) {
         console.debug('[sw fetch] Returning from SW cache:', url);
         return response;
@@ -38,9 +39,8 @@ const fetchListener = (event) => {
 const activateListener = (event) => {
   console.debug('[sw activate] Activating SW!');
 
-  // Calling claim() to force a "controllerchange" event on navigator.serviceWorker
   console.debug('[activate] Claiming this ServiceWorker!');
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(self.clients.claim()); // activate NOW!
 };
 
 self.addEventListener('activate', activateListener);
