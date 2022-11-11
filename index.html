@@ -8,7 +8,6 @@
     <meta name="theme-color" content="#2e6b94">
     <title>Infraspace Calculator</title>
     <link rel="stylesheet" href="./assets/styles/infra-calc-styles.css">
-    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
   </head>
 
   <body>
@@ -113,9 +112,7 @@
               } 
 
               if (serviceWorker) {
-                // logState(serviceWorker.state);
-                console.log('sw', serviceWorker);
-                  // logState(e.target.state);
+                console.debug('sw registered', serviceWorker);
               }
 
             })
