@@ -1,58 +1,48 @@
-// [Working example](/serviceworker-cookbook/offline-status/).
-
-var CACHE_NAME = 'dependencies-cache';
-
-// Files required to make this app work offline
-var REQUIRED_FILES = [
+const CACHE_NAME = 'dependencies-cache';
+const CACHED_FILES = [
   './assets/styles/infra-calc-styles.css',
   './assets/scripts/infra-calc-scripts.js',
+  './index.html',
 ];
 
-self.addEventListener('install', function (event) {
-  // Perform install step:  loading each required file into cache
+const installListener = (event) =>
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then(function (cache) {
-        // Add all offline dependencies to the cache
-        console.debug(
-          '[install] Caches opened, adding all core components' + 'to cache'
-        );
-        return cache.addAll(REQUIRED_FILES);
+      .then((cache) => {
+        console.debug('[sw install] Adding files to cache...');
+        return cache.addAll(CACHED_FILES);
       })
-      .then(function () {
-        console.debug(
-          '[install] All required resources have been cached, ' + "we're good!"
-        );
+      .then(() => {
+        console.debug('[sw install] Files cached!');
         return self.skipWaiting();
       })
   );
-});
 
-self.addEventListener('fetch', function (event) {
+const fetchListener = (event) => {
+  const { url } = event.request;
+
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      // Cache hit - return the response from the cached version
+    caches.match(event.request).then((response) => {
+      // Cache hit
       if (response) {
-        console.debug(
-          '[fetch] Returning from ServiceWorker cache: ',
-          event.request.url
-        );
+        console.debug('[sw fetch] Returning from SW cache:', url);
         return response;
       }
-
-      // Not in cache - return the result from the live server
-      // `fetch` is essentially a "fallback"
-      console.debug('[fetch] Returning from server: ', event.request.url);
+      console.debug('[fetch] Returning from server: ', url);
       return fetch(event.request);
     })
   );
-});
+};
 
-self.addEventListener('activate', function (event) {
-  console.debug('[activate] Activating ServiceWorker!');
+const activateListener = (event) => {
+  console.debug('[sw activate] Activating SW!');
 
   // Calling claim() to force a "controllerchange" event on navigator.serviceWorker
   console.debug('[activate] Claiming this ServiceWorker!');
   event.waitUntil(self.clients.claim());
-});
+};
+
+self.addEventListener('activate', activateListener);
+self.addEventListener('fetch', fetchListener);
+self.addEventListener('install', installListener);
