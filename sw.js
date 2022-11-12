@@ -1,5 +1,6 @@
 const CACHE_NAME = 'dependencies-cache';
 const CACHED_FILES = [
+  './assets/icons/',
   './assets/styles/infra-calc-styles.css',
   './assets/scripts/infra-calc-scripts.js',
   './index.html',

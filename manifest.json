@@ -39,7 +39,7 @@
       "sizes": "512x512"
    }
   ],
-  "start_url": "/infracalc",
+  "start_url": "/infracalc/",
   "display": "standalone",
   "theme_color": "#2e6b94",
   "background_color": "#1b2327",
