@@ -1,0 +1,49 @@
+{
+  "name": "InfraCalc",
+  "short_name": "infracalc",
+  "icons": [
+    {
+      "src": "./assets/icons/infraspace_icon_16x14.png",
+      "type": "image/png",
+      "sizes": "16x16"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_32x28.png",
+      "type": "image/png",
+      "sizes": "32x32"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_96x83.png",
+      "type": "image/png",
+      "sizes": "96x96"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_180x155.png",
+      "type": "image/png",
+      "sizes": "180x180"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_192x165.png",
+      "type": "image/png",
+      "sizes": "192x192"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_192x165.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+   },
+    {
+      "src": "./assets/icons/infraspace_icon_512x441.png",
+      "type": "image/png",
+      "sizes": "512x512"
+   }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2e6b94",
+  "background_color": "#1b2327",
+  "orientation": "portrait",
+  "scope": "./",
+  "prefer_related_applications": true
+}
