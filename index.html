@@ -101,7 +101,7 @@
         if ('serviceWorker' in $win.navigator) {
           navigator.serviceWorker
             .register('./sw.js', {
-              scope: "./",
+              scope: "./infracalc/",
             })
             .then((registration) => {
               let serviceWorker;
