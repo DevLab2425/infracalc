@@ -3,7 +3,7 @@ const CACHED_FILES = [
   './assets/styles/infra-calc-styles.css',
   './assets/scripts/infra-calc-scripts.js',
   './index.html',
-  '/',
+  './',
 ];
 
 const installListener = (event) =>
