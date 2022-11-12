@@ -1,9 +1,15 @@
 const CACHE_NAME = 'dependencies-cache';
 const CACHED_FILES = [
+  './assets/icons/src/assets/icons/infraspace_icon_16x14.png',
+  './assets/icons/src/assets/icons/infraspace_icon_32x28.png',
+  './assets/icons/src/assets/icons/infraspace_icon_96x83.png',
+  './assets/icons/src/assets/icons/infraspace_icon_180x155.png',
+  './assets/icons/src/assets/icons/infraspace_icon_192x165.png',
+  './assets/icons/src/assets/icons/infraspace_icon_512x441.png',
   './assets/styles/infra-calc-styles.css',
   './assets/scripts/infra-calc-scripts.js',
   './index.html',
-  '/',
+  './',
 ];
 
 const installListener = (event) =>
@@ -17,6 +23,9 @@ const installListener = (event) =>
       .then(() => {
         console.debug('[sw install] Files cached!');
         return self.skipWaiting();
+      })
+      .catch((err) => {
+        console.error(err);
       })
   );
 

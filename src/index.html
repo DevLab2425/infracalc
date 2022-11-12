@@ -101,7 +101,7 @@
         if ('serviceWorker' in $win.navigator) {
           navigator.serviceWorker
             .register('./sw.js', {
-              scope: "./",
+              scope: "./", // sets the path to which the SW will activate; relative to SW path
             })
             .then((registration) => {
               let serviceWorker;
