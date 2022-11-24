@@ -1,3 +1,6 @@
 /node_modules
 .env
-.log
+*.log
+
+# generated JS files; store .ts files
+/dist
