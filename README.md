@@ -1,7 +1,15 @@
 # InfraCalc - The InfraSpace Calculator
 
-> Forked from the original [Quantra/infracalc](https://github.com/Quantra/infracalc)
+## ANNOUNCEMENT
 
+**YOU ARE VIEWING THE NEXT GENERATION OF THE InfraCalc WEB APPLICATION!** 
+
+For `v1.x.x`, visit [the `main` branch of this repo](https://github.com/DevLab2425/infracalc/tree/main). For the original, please visit [the upstream fork](https://github.com/Quantra/infracalc).
+
+<hr />
+
+> Forked from the original [Quantra/infracalc](https://github.com/Quantra/infracalc)
+>
 > https://quantra.github.io/infracalc/
 
 ## Overview
