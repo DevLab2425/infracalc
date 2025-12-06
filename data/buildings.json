@@ -1,0 +1,322 @@
+{
+  "Sand": {
+    "building": "Large Sand Mine",
+    "time": 6,
+    "smallTime": 12,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Sulfur": {
+    "building": "Large Sulfur Mine",
+    "time": 1.2,
+    "smallTime": 2.4,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Iron": {
+    "building": "Large Iron Mine",
+    "time": 1.6,
+    "smallTime": 3.2,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Copper": {
+    "building": "Large Copper Mine",
+    "time": 3.2,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Aluminum": {
+    "building": "Large Aluminum Mine",
+    "time": 5.4,
+    "smallTime": 10.8,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Uranium": {
+    "building": "Large Uranium Mine",
+    "time": 20,
+    "smallTime": 40,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+  "Iridium": {
+    "building": "Large Iridium Mine",
+    "time": 5.4,
+    "smallTime": 10.8,
+    "output": 1,
+    "needs": [],
+    "type": "mine"
+  },
+
+  "Electronics": {
+    "building": "Electronics Factory",
+    "time": 32,
+    "output": 2,
+    "needs": [{ "Iron": 1 }, { "Copper": 1 }],
+    "type": "technology"
+  },
+  "Microchips": {
+    "building": "Microchips Factory",
+    "time": 60,
+    "output": 1,
+    "needs": [{ "Sand": 1 }, { "Electronics": 2 }],
+    "type": "technology"
+  },
+  "Neural Processors": {
+    "building": "Neural Processor Factory",
+    "time": 90,
+    "output": 1,
+    "needs": [{ "Sand": 2 }, { "Nanotubes": 3 }, { "Microchips": 2 }],
+    "type": "technology"
+  },
+  "Motors": {
+    "building": "Motor Factory",
+    "time": 24,
+    "output": 1,
+    "needs": [{ "Copper": 1 }, { "Steel": 2 }],
+    "type": "technology"
+  },
+  "Nanotubes": {
+    "building": "Nanotubes Factory",
+    "time": 50,
+    "output": 2,
+    "needs": [{ "Sand": 2 }, { "Carbon": 5 }, { "Water": 2 }],
+    "type": "technology"
+  },
+  "Iridium Alloy": {
+    "building": "Iridium Alloy Factory",
+    "time": 26,
+    "output": 1,
+    "needs": [{ "Iridium": 2 }, { "Nanotubes": 2 }],
+    "type": "technology"
+  },
+  "Holo-Display": {
+    "building": "Holo-Display Factory",
+    "time": 26,
+    "output": 1,
+    "needs": [{ "Sand": 2 }, { "Iridium": 1 }, { "Nanotubes": 2 }],
+    "type": "technology"
+  },
+  "Radiation Core": {
+    "building": "Radiation Core Factory",
+    "time": 20,
+    "output": 1,
+    "needs": [{ "Uranium": 2 }, { "Iridium Alloy": 2 }],
+    "type": "technology"
+  },
+
+  "Concrete": {
+    "building": "Concrete Factory",
+    "time": 9.6,
+    "output": 4,
+    "needs": [{ "Sand": 1 }, { "Sulfur": 2 }],
+    "type": "manufacturing"
+  },
+  "Steel": {
+    "building": "Steel Mill",
+    "time": 16,
+    "output": 2,
+    "needs": [{ "Iron": 1 }, { "Carbon": 1 }, { "Water": 1 }],
+    "type": "manufacturing"
+  },
+  "Home Appliances": {
+    "building": "Home Appliances Factory",
+    "time": 36,
+    "output": 2,
+    "needs": [{ "Iron": 1 }, { "Electronics": 2 }],
+    "type": "manufacturing"
+  },
+  "Computer": {
+    "building": "Computer Factory",
+    "time": 80,
+    "output": 4,
+    "needs": [{ "Aluminum": 1 }, { "Electronics": 2 }, { "Microchips": 1 }],
+    "type": "manufacturing"
+  },
+  "Home Robot": {
+    "building": "Home Robot Factory",
+    "time": 60,
+    "output": 10,
+    "needs": [
+      { "Aluminum": 2 },
+      { "Electronics": 2 },
+      { "Motors": 1 },
+      { "Neural Processors": 1 }
+    ],
+    "type": "manufacturing"
+  },
+  "Industrial Robot": {
+    "building": "Industrial Robot Factory",
+    "time": 60,
+    "output": 4,
+    "needs": [
+      { "Aluminum": 2 },
+      { "Electronics": 2 },
+      { "Motors": 1 },
+      { "Neural Processors": 1 }
+    ],
+    "type": "manufacturing"
+  },
+  "High Tech": {
+    "building": "High Tech Factory",
+    "time": 40,
+    "output": 4,
+    "needs": [
+      { "Aluminum": 4 },
+      { "Neural Processors": 1 },
+      { "Iridium Alloy": 1 },
+      { "Methane": 6 }
+    ],
+    "type": "manufacturing"
+  },
+  "VR Edutainment": {
+    "building": "VR Edutainment Factory",
+    "time": 20,
+    "output": 5,
+    "needs": [
+      { "Holo-Display": 1 },
+      { "Microchips": 1 },
+      { "Neural Processors": 1 }
+    ],
+    "type": "manufacturing"
+  },
+  "Iridium Propellant": {
+    "building": "Iridium Propellant Factory",
+    "time": 26,
+    "output": 1,
+    "needs": [{ "Sulfur": 10 }, { "Iridium": 10 }],
+    "type": "manufacturing"
+  },
+  "AI Control Unit": {
+    "building": "AI Control Unit Factory",
+    "time": 26,
+    "output": 1,
+    "needs": [{ "Aluminum": 4 }, { "Neural Processors": 2 }],
+    "type": "manufacturing"
+  },
+
+  "Blue Science": {
+    "building": "Blue Science Pack Factory",
+    "time": 20,
+    "output": 1,
+    "needs": [{ "Iron": 2 }, { "Carbon": 1 }],
+    "type": "science"
+  },
+  "Green Science": {
+    "building": "Green Science Pack Factory",
+    "time": 60,
+    "output": 1,
+    "needs": [{ "Sulfur": 4 }, { "Electronics": 4 }, { "Blue Science": 3 }],
+    "type": "science"
+  },
+  "Yellow Science": {
+    "building": "Yellow Science Pack Factory",
+    "time": 120,
+    "output": 1,
+    "needs": [
+      { "Motors": 10 },
+      { "Neural Processors": 4 },
+      { "Green Science": 1 },
+      { "Methane": 5 }
+    ],
+    "type": "science"
+  },
+  "Red Science": {
+    "building": "Red Science Pack Factory",
+    "time": 160,
+    "output": 1,
+    "needs": [
+      { "Radiation Core": 8 },
+      { "AI Control Unit": 3 },
+      { "Yellow Science": 2 }
+    ],
+    "type": "science"
+  },
+
+  "Water": {
+    "building": "Ground Water Extractor",
+    "time": 2,
+    "smalltime": 8,
+    "output": 1,
+    "needs": [],
+    "type": "environment"
+  },
+  "Methane": {
+    "building": "Methane Drill",
+    "time": 10,
+    "output": 1,
+    "needs": [],
+    "type": "environment"
+  },
+  "Methane Plant": {
+    "building": "Methane Drill",
+    "time": 10,
+    "output": 1,
+    "needs": [{ "organic waste": 2 }],
+    "type": "environment"
+  },
+
+  "Atmosphere": {
+    "building": "Atmosphere Processor",
+    "time": 16,
+    "output": [{ "Oxygen": 1 }, { "Carbon": 1 }],
+    "needs": [],
+    "type": "survival"
+  },
+  "Oxygen": {
+    "building": "Oxygen Processor",
+    "time": 8,
+    "output": 1,
+    "needs": [],
+    "type": "survival"
+  },
+  "Carbon": {
+    "building": "Carbon Processor",
+    "time": 8,
+    "output": 1,
+    "needs": [],
+    "type": "survival"
+  },
+  "Farm": {
+    "building": "Simple Farm",
+    "time": 14,
+    "output": 1,
+    "needs": [],
+    "type": "survival"
+  },
+  "Fertilizer": {
+    "building": "Fertilizer Factory",
+    "time": 10,
+    "output": 1,
+    "needs": [{ "Sulfur": 1 }],
+    "type": "survival"
+  },
+  "Vegetables": {
+    "building": "Vegetable farm",
+    "time": 28,
+    "output": [{ "Vegetables": 4 }, { "Organic Waste": 1 }],
+    "needs": [{ "Fertilizer": 1 }],
+    "type": "survival"
+  },
+  "Meat": {
+    "building": "Meat Lab",
+    "time": 32,
+    "output": [{ "Meat": 4 }, { "Organic Waste": 1 }],
+    "needs": [],
+    "type": "survival"
+  },
+  "Good Meal": {
+    "building": "Meal Factory",
+    "time": 6,
+    "output": 2,
+    "needs": [{ "Vegetables": 1 }, { "Meat": 1 }],
+    "type": "survival"
+  }
+}

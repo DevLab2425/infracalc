@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A resource calculator for the civilization building game InfraSpace">
     <meta name="theme-color" content="#2e6b94">
+    <link rel="preload" as="style" href="./assets/styles/infra-calc-styles.css">
     <link rel="stylesheet" href="./assets/styles/infra-calc-styles.css">
     <link rel="shortcut icon" href="./favicon.png">
     <link rel="manifest" href="./manifest.json">
@@ -18,7 +19,7 @@
       <h1>Infraspace Calculator</h1>
     </header>
 
-    <div class="wrapper">
+    <div class="wrapper" role="main">
       <section>
         <h2>Mode of Calculation</h2>
         <form id="mode-calc-form">
@@ -95,8 +96,8 @@
       </section>
     </div>
 
-    <script src="./assets/scripts/infra-calc-scripts.js" lang="javascript"></script>
-    <script>
+    <script src="./assets/scripts/infra-calc-scripts.js" lang="javascript" defer></script>
+    <script defer>
       (function ($win) {
         if ('serviceWorker' in $win.navigator) {
           navigator.serviceWorker

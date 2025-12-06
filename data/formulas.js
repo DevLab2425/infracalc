@@ -1,0 +1,3 @@
+// function buildingIngredients (building, quantity) {
+
+// }
