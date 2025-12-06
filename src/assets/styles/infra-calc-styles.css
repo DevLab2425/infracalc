@@ -3,8 +3,8 @@
   font-size: 16px;
   font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
   --header-bg-color: hsl(224, 67%, 15%);
-  --primary-color-light: hsl(205, 19%, 54%);
-  --primary-color-dark: hsl(204, 53%, 38%);
+  --primary-color-light: hsl(208, 19%, 41%, 0.6);
+  --primary-color-dark: hsl(204, 53%, 25%);
 }
 
 body {
